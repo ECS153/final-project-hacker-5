@@ -32,3 +32,4 @@ I will be getting started with setting up Mesibo software and designing the User
 
 
 ### Group video link:
+https://drive.google.com/file/d/1lJEXKoLs4aeYiVEESv4Yzb6YPkKkd4hf/view?usp=sharing
