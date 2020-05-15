@@ -17,7 +17,7 @@ For this upcoming week, we identified several tasks that need to be done so that
 
 ### Individual Notes:
 
-#### Abdullah:
+#### Abdullah: This weeks goal is to get started with the Mesibo API and set up a 1 to 1 messaging interface in the application. and then look up some encryption techniques to integrate them with our messaging app. 
 #### Aziz:
 #### Jasmine:
 #### Matthew:
