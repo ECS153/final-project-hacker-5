@@ -20,10 +20,11 @@ For this upcoming week, we identified several tasks that need to be done so that
 #### Abdullah: 
 This week's goal is to get started with the Mesibo API and set up a 1 to 1 messaging interface in the application. and then look up some encryption techniques to integrate them with our messaging app. 
 #### Aziz:
-For this week, the task is getting acquainted with the Mesibo framework and hopefully running a successful appilcation. Next up, we need o understand how the application handles encrypion such that we can add our own algorithms to the application.
+For this week, the task is getting acquainted with the Mesibo framework and hopefully running a successful appilcation. Next up, we need to understand how the application handles encrypion such that we can add our own algorithms to the application.
 #### Jasmine:
 For this week, I have responsibility of writing our first Mesibo enabled test message in Python. Then, I will start looking at encryption techniques that we will be needing for our messaging application.
 #### Matthew:
+For this week, I have the responsibility to getting used to my programming enviroment on Mesibo and learn how to run on it. After that I plan on researching encryption techniques to implement it into the messanging application.
 #### Obaid:
 I will be getting started with setting up Mesibo software and designing the User Interface. 
 
