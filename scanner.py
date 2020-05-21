@@ -1,3 +1,5 @@
+#!user/bin/python
+
 import socket
 import os
 import sys
@@ -29,10 +31,10 @@ def main():
 	else:
 		print 'Usage: ' + str(sys.argv[0]) + '<vuln filename>'
 		exit(0)
-	portlist = [21,22,25,80,110,443,445]
-	for x in range(4,6):
-		ip = '192.168.1.' + str(x)
-		for port in portlist:
+	portlist = 1000
+	for x in range(1,255):
+        ip = socket.gethostbyname(socket.gethostname()) + str(x)
+		for port in range(1, portlist):
 			banner = retBanner(ip.port)
 			if banner:
 				print ip + '/' + str(port) + ':' + banner
