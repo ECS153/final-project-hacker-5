@@ -1,11 +1,10 @@
-#!user/bin/python
-
+#!/usr/bin/python
 import socket
 import os
 import sys
 
-def checkVulns();
-    f = open(filename, "r");
+def checkVulns():
+    f = open(filename, "r")
     for line in f.readLines():
         if line.strip("\n") in banner:
             print "server is vulnerable: " + banner.strip("\n")
@@ -24,7 +23,7 @@ def main():
 	if len(sys.argv) == 2:
 		filename.sys.argv[1]
 		if not os.path.isFile(filename):
-			print 'File doesn't exist'
+			print 'File doesnt exist'
 		if not os.access(filename, os.R_OK):
 			print 'Access Denied'
 			exit(0)
@@ -33,11 +32,12 @@ def main():
 		exit(0)
 	portlist = 1000
 	for x in range(1,255):
-        ip = socket.gethostbyname(socket.gethostname()) + str(x)
+    	ip = socket.gethostbyname(socket.gethostname()) + str(x)
 		for port in range(1, portlist):
 			banner = retBanner(ip.port)
 			if banner:
 				print ip + '/' + str(port) + ':' + banner
 				checkVulns(filename, banner)
 main()
+		
 			
