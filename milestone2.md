@@ -21,6 +21,7 @@ For this upcoming week, we identified several tasks that need to be done so that
 ### Individual Notes:
 
 #### Abdullah: 
+I will be working on sniffing and spoofing attacks for this week
 
 #### Aziz:
 I'm working on setting up the bruteforce attacks among devices and examining how to detect network traffic. Once traffic detection is done then spoofing would be the next step.
