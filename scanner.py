@@ -32,12 +32,12 @@ def main():
 		exit(0)
 	portlist = 1000
 	for x in range(1,255):
-    	ip = socket.gethostbyname(socket.gethostname()) + str(x)
+    		ip = socket.gethostbyname(socket.gethostname()) + str(x)
 		for port in range(1, portlist):
 			banner = retBanner(ip.port)
 			if banner:
 				print ip + '/' + str(port) + ':' + banner
 				checkVulns(filename, banner)
 main()
-		
 			
+	
