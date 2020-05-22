@@ -28,7 +28,7 @@ I'm working on setting up the bruteforce attacks among devices and examining how
 #### Jasmine:
 I am working on keylogger currently and then will be working on Reverse Shell with Abdullah Sairafi. 
 #### Matthew:
-
+I am working on the banner scanner to scan for port vulnerabilities. I also plan on working on the SSH and FTP attacks.
 #### Obaid:
 
 
