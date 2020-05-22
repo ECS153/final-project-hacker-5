@@ -13,8 +13,12 @@ def retBanner(ip,port):
     try:
 	print "h"
         socket.setdefaulttimeout(2)
+	print "d"
         s = socket.socket()
+	print ip
+	print port
         s.connect((ip,port))
+	print "dwe"
         banner = s.recv(1024)
 	print banner
         return banner
@@ -33,7 +37,7 @@ def main():
 	else:
 		print 'Usage: ' + str(sys.argv[0]) + '<vuln filename>'
 		exit(0)
-	portlist = 10
+	portlist = 22
 	for x in range(0,10):
     		ip0 = socket.gethostbyname(socket.gethostname()).split(".")[0] + "."
 		ip1 = ip0 + socket.gethostbyname(socket.gethostname()).split(".")[1] + "."
@@ -41,6 +45,7 @@ def main():
 		ip = ip2 + str(x)
 		print ip
 		for port in range(1, portlist):
+			print str(ip) + " and " + str(port)
 			banner = retBanner(ip,port)
 			if banner:
 				print ip + '/' + str(port) + ':' + banner
