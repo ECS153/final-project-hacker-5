@@ -2,16 +2,24 @@
 import socket
 import os
 import sys
-filename = "banners.txt"
+
 def retBanner(ip,port):
     try:
+        print "h"
         socket.setdefaulttimeout(2)
+        print "d"
         s = socket.socket()
-        s.connect((ip.port))
+        print ip
+        print port
+        s.connect((ip,port))
+        print "dwe"
         banner = s.recv(1024)
+        print banner
         return banner
-    except:
+    except socket.error, exc:
+        print "Caught exception socket.error : %s" % exc
         return
+
 
 def checkVulns(filename,banner):
     f = open(filename, "r")
@@ -20,24 +28,18 @@ def checkVulns(filename,banner):
             print "server is vulnerable: " + banner.strip("\n")
 
 def main():
-	if len(sys.argv) == 2:
-		filename = sys.argv[1]
-		if not os.path.isfile(filename):
-			print 'File doesnt exist'
-                exit(0)
-		if not os.access(filename, os.R_OK):
-			print 'Access Denied'
-			exit(0)
-	else:
-		print 'Usage: ' + str(sys.argv[0]) + '<vuln filename>'
-		exit(0)
-	portlist = 1000
-	for x in range(1,255):
-    		ip = socket.gethostbyname(socket.gethostname()) + str(x)
-		for port in range(1, portlist):
-			banner = retBanner(ip,port)
-			if banner:
-				print ip + '/' + str(port) + ':' + banner
-				checkVulns(filename, banner)
+    portstart = 219
+    portfinish = 220
+    for x in range(0,255):
+            ip0 = socket.gethostbyname(socket.gethostname()).split(".")[0] + "."
+            ip1 = ip0 + socket.gethostbyname(socket.gethostname()).split(".")[1] + "."
+            ip2 = ip1 + socket.gethostbyname(socket.gethostname()).split(".")[2] + "."
+            ip = ip2
+            for port in range(portstart, portfinish):
+                print str(ip) + " and " + str(port)
+                banner = retBanner(ip,port)
+                if banner:
+                    print ip + '/' + str(port) + ':' + banner
+                    checkVulns(filename, banner)
 main()
-			
+		
