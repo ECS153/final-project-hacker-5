@@ -1,47 +1,59 @@
 #!/usr/bin/python
 
 from socket import *
-import optparse
-from threading import *
+import argparse
+from colored import fg
 
-def connScan(tgtHost, tgtPort):
+def conn_scan(tgtHost, tgtPort):
     try:
         sock = socket(AF_INET, SOCK_STREAM)
         sock.connect((tgtHost, tgtPort))
-        print (f'[+] {tgtPort}/tcp open.')
+        serv = getservbyport(tgtPort)
+        color = fg('green')
+        print(color + f'[+] port {tgtPort} is open. ' + serv)
+        #print(str(serv))
+
     except:
-        print (f'[-] {tgtPort}/tcp closed.')
+        pass
+        # color = fg('red')
+        # print(color + f'[-] port {tgtPort} is closed.')
     finally:
         sock.close()
 
-def portScan(tgtHost, tgtPorts):
+def port_scan(tgtHost, tgtPorts):
     try:
         tgtIP = gethostbyname(tgtHost)
     except:
         print(f'Unknown Host {tgtHost}')
     try:
         tgtName = gethostbyaddr(tgtIP)
-        print(f'[+] Scan Results For: ' + tgtName[0])
+        color = fg('yellow')
+        print(color + f'[+] Scan Results For: ' + tgtName[0])
     except:
-        print(f'[+] Scan Resluts For: ' + tgtIP)
+        color = fg('yellow')
+        print(color + f'[+] Scan Results For: ' + tgtIP)
 
     setdefaulttimeout(2)
     for tgtPort in tgtPorts:
-        t = Thread(target = connScan, args = (tgtHost, int(tgtPort)))
-        t.start()
+        conn_scan(tgtHost, tgtPort)
+
 
 def main():
-    parser = optparse.OptionParser('Usage: ' + '-H <target host> -p <target port>')
-    parser.add_option('-H', dest = 'tgtHost', type = 'string', help = 'specify target host')
-    parser.add_option('-p', dest = 'tgtPort', type = 'string', help = 'specify target ports seperated by comma')
-    (options, args) = parser.parse_args()
-    tgtHost = options.tgtHost
-    tgtPorts = str(options.tgtPort).split(',')
-    if (tgtHost == None) | (tgtPorts[0] == None):
-        print(parser.usage)
-        exit(0)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('host', help="Target Host")
+    parser.add_argument('-p', '--ports', type=str, help="ports range\n Ex: -p 1-65535")
+    args = parser.parse_args()
 
-    portScan(tgtHost, tgtPorts)
+    tgtHost = args.host
+    if args.ports == None: # scan first 1000 ports
+        tgtPorts = [*range(0, 1001)]
+    else: # process the input
+        args.ports = str(args.ports).replace(':', '-')
+        tgtPorts = str(args.ports).split('-')
+        tgtPorts = [*range(int(tgtPorts[0]), int(tgtPorts[1])+1)]
+
+
+    port_scan(tgtHost, tgtPorts)
 
 if __name__ == '__main__':
     main()
