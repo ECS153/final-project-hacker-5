@@ -16,7 +16,7 @@ def connect(user, host, password):
     #We want to just say yes
     connStr = 'ssh ' +  user + '@' + host
     child = pexpect.spawn(connStr) # libary
-    ret = child.expect([pexpect.TIMEOUT, ssh_newkey. '[P|p]assword: ' ])
+    ret = child.expect([pexpect.TIMEOUT, ssh_newkey, '[P|p]assword: ' ])
     if ret == 0:
         print('[-] Error Connecting')
         return
