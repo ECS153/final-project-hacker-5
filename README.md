@@ -64,12 +64,15 @@ Run the programs by typing “python sshlogin.py” and “python brutessh.py”
 
 ## File Structure
 All our code files are located in final-project-hacker-5/src
-1. shell.py, server.py, and passwords.txt
-	-this is for reverse shell
+1. shell.py:
+ This file is the backdoor to the target system
+2. server.py
+ It is the connection point to the target system. Server and shell are connected through a tcp socket. 
 2. ARPSpoofer.py
+ This is to perform man-in-the-middle attack. The spoof is performed by just running the code, you will need the scapy module.
 3. Anonloginftp.py, brutessh.py, and sshlogin.py
 	-this is for SSH and FTP attacks. 
 5. keylogger.py
-	-this is for the keylogger
+ Keylogger tracks and records every key that was inputted by the target. 
 7. ports_scanner.py
-	-This file checks the vulnerable ports open on a computer
+This file checks the vulnerable ports open on a target machine.
