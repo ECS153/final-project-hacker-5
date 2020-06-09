@@ -35,6 +35,30 @@ Also, you must change the IP Address in shell.py and server.py  to your own IP A
 2. To run the shell: We used python package called pyinstaller to create an executable file for the shell to do this: python -m PyInstaller shell.py
  2.1 This will create a dist directory 
 3. Now copy the dist directory to the target computer
-On the target computer, do the following: #both these commands are basically the target running our shell
-3.1 cd dist/shell                     
-3.2 comiple: ./shell  
+4. On the target computer, do the following: #both these commands are basically the target running our shell
+4.1 cd dist/shell                     
+4.2 comiple: ./shell  
+
+
+### How to set up and run SSH Attacks:
+1) On Kali linux, go on root 
+Type “su -p” and follow all of the commands in root
+ 2) Download the pexpect module.
+pip install pexpect
+pip3 inatall pexpect
+pip install term color
+	3) Run the programs 
+Run the programs by typing “python sshlogin.py” and “python brutessh.py”
+
+#### Then run the program 
+1. python sshlogin.py 
+2. Type in the ip address, username and password
+
+
+### How to set up and run ARP Spoofer:
+1. First you need to download the scapy module, using this command on the terminal: 
+    1.1 pip install scapy
+2. Or download it off github here: https://github.com/secdev/scapy
+3. Next, you will have a scapy folder, inside that scapy folder is where you place the arpSpoofer.py
+4. To run it, go to the scapy directory inside the terminal and use ./arpSpoofer.py, then let the program run. 
+5. Next, if you have another device or virtual machine, run “arp -a” on this other machine and you should see under one of the dynamic IP addresses the MAC address will be different.
