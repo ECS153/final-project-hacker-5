@@ -71,7 +71,7 @@ All our code files are located in final-project-hacker-5/src
 2. ARPSpoofer.py
 - This is to perform man-in-the-middle attack. The spoof is performed by just running the code, you will need the scapy module.
 3. Anonloginftp.py, brutessh.py, and sshlogin.py
--this is for SSH and FTP attacks. 
+- this is for SSH and FTP attacks. 
 5. keylogger.py
 - Keylogger tracks and records every key that was inputted by the target. 
 7. ports_scanner.py
