@@ -1,9 +1,10 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 from socket import *
 import argparse
 from colored import fg
 
+# Function to establish a connection with a given IP address and a port number
 def conn_scan(tgtHost, tgtPort):
     try:
         sock = socket(AF_INET, SOCK_STREAM)
@@ -20,6 +21,7 @@ def conn_scan(tgtHost, tgtPort):
     finally:
         sock.close()
 
+# Helper function that resolves DNS and calls conn_scan to scan a port
 def port_scan(tgtHost, tgtPorts):
     try:
         tgtIP = gethostbyname(tgtHost)
