@@ -49,8 +49,7 @@ pip3 inatall pexpect
 pip install term color
 	3) Run the programs 
 Run the programs by typing “python sshlogin.py” and “python brutessh.py”
-
-#### Then run the program 
+-> Then run the program with the following commands:
 1. python sshlogin.py 
 2. Type in the ip address, username and password
 
@@ -62,3 +61,5 @@ Run the programs by typing “python sshlogin.py” and “python brutessh.py”
 3. Next, you will have a scapy folder, inside that scapy folder is where you place the arpSpoofer.py
 4. To run it, go to the scapy directory inside the terminal and use ./arpSpoofer.py, then let the program run. 
 5. Next, if you have another device or virtual machine, run “arp -a” on this other machine and you should see under one of the dynamic IP addresses the MAC address will be different.
+
+## File Structure
