@@ -9,14 +9,14 @@ Authors: Abdullah, Aziz, Jasmine, Matthew, Obaid
   
 ### How to set up and run keylogger:
   #### Getting started with Keylogger(tools you need to download):
-    1. To be able to run the keylogger, you need to install pynput library: pip install pynput
-    2. f you are using python3, you might need pip3 install pynput
-    3. Then, type python in the terminal. Once you are in the command line, type the following: import pynput.keyboard, followed by exit()
-    4. Finally, install the keyboard library: pip install pynput.keyboard (if you are on python3, you might need pip3)
+  1. To be able to run the keylogger, you need to install pynput library: pip install pynput
+  2. f you are using python3, you might need pip3 install pynput
+  3. Then, type python in the terminal. Once you are in the command line, type the following: import pynput.keyboard, followed by exit()
+  4. Finally, install the keyboard library: pip install pynput.keyboard (if you are on python3, you might need pip3)
     
    #### How to run the keylogger:
    ##### Note: While running the keylogger, we worked with two different machines, one Ubuntu(attacker) and another kali linux      VM(target). Follow the steps below to run the keylogger:
-Also, you must change the IP Address in shell.py and server.py  to your own IP Address. Currently, it is a hard coded value. It would be at line 
+   #### Also, you must change the IP Address in shell.py and server.py  to your own IP Address. Currently, it is a hard coded value. It would be at line 106 in shell.py and line 65 in server.py
 
 1. (On terminal/ubuntu terminal)We first create the executable file for the shell. We used python package called pyinstaller to create an executable file for the shell to do this: python -m PyInstaller shell.py
  1.1 This will create a dist directory 
