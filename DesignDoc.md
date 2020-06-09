@@ -35,7 +35,8 @@ Our findings from Keylogger:
 ### SKETCH OF REVERSE SHELL  ###
 
 <img src = "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.15752-9/102394859_575458426706668_5572030561150967953_n.jpg?_nc_cat=104&_nc_sid=b96e70&_nc_ohc=F2f5ZHcc9H8AX-WekMd&_nc_ht=scontent-sjc3-1.xx&oh=42a9af5beb016a4e0846a51231dda5f8&oe=5F03F42B" width="200"/>
-### EXPLAIN THE SKETCH  
+
+### EXPLAIN THE SKETCH  ###
 
 So the attacker will see a nice advertisement that claims to offer free stuff.   
 But once the target goes to this fishy site, the attacker can take over the user and perform  
