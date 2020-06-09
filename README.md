@@ -31,6 +31,7 @@ Authors: Abdullah, Aziz, Jasmine, Matthew, Obaid
 8. You can also see it create a text file called “keylogger.txt” on the ubuntu machine(attacker) which contains the contents of what you wrote in Kali linux machine(target)
 
 ### Next, we will discuss how to run reverse shell:
+#### NOTE: Also, you must change the IP Address in shell.py and server.py to your own IP Address. Currently, it is a hard coded value. It would be at line 106 in shell.py and line 65 in server.py
 1. On your target machine, run the server. To run the server: python server.py
 2. To run the shell: We used python package called pyinstaller to create an executable file for the shell to do this: python -m PyInstaller shell.py
  2.1 This will create a dist directory 
