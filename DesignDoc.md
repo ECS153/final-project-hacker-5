@@ -31,6 +31,7 @@ one from a static IP address. This indicates that my mac IP address is under a d
 address from before indicating a It does take multiple tries to see the change with the “arp -a” command.    
 Our findings from Keylogger:   
 
+Our findings from Keylogger: We found that the attacker is able to read and monitor every keystroke the target machine is writing in their system. We used Kali Linux as our target machine and Ubuntu machine as our attacking machine. We used pynput.keyboard library to record the keystrokes the user is typing. 
 
 ### SKETCH OF REVERSE SHELL  ###
 
