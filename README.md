@@ -63,3 +63,13 @@ Run the programs by typing “python sshlogin.py” and “python brutessh.py”
 5. Next, if you have another device or virtual machine, run “arp -a” on this other machine and you should see under one of the dynamic IP addresses the MAC address will be different.
 
 ## File Structure
+All our code files are located in final-project-hacker-5/src
+1. shell.py, server.py, and passwords.txt
+	-this is for reverse shell
+2. ARPSpoofer.py
+3. Anonloginftp.py, brutessh.py, and sshlogin.py
+	-this is for SSH and FTP attacks. 
+5. keylogger.py
+	-this is for the keylogger
+7. ports_scanner.py
+	-This file checks the vulnerable ports open on a computer
