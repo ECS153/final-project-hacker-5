@@ -77,3 +77,6 @@ All our code files are located in final-project-hacker-5/src
 - Keylogger tracks and records every key that was inputted by the target. 
 7. ports_scanner.py
 - This file checks the vulnerable ports open on a target machine.
+
+## Final Presentation link
+https://docs.google.com/presentation/d/1EJnmidt_SPS09I4T7Ejj9CKtodgp4QCLgMRd6Ciyd2M/edit?usp=sharing
