@@ -2,20 +2,20 @@
 Authors: Abdullah, Aziz, Jasmine, Matthew, Obaid
 
 ## What does our project do?
-  We created tools such as Reverse shell, Keylogger, Arp spoofer, SSH and FTP Attacks to show what could happen if you download software from malicious websites and how public connections could steal your private information. We show the vulnerabilities of computer system. 
+  We created tools such as Reverse shell, Keylogger, ARP spoofer, SSH and FTP Attacks to show what could happen if you download software from malicious websites and how public connections could steal your private information. We show the vulnerabilities of computer systems inside the same network with our code, and found that we can get control over other users’ computers and retrieve sensitive information with various methods.
 
 ## Setting up and Running our Code
   Since there are four different tools we utilized, each of them have different steps of setting up and running. We will show you the steps of each of the tools we created, starting with keylogger.
   
 ### How to set up and run keylogger:
-  Getting started with Keylogger(tools you need to download):
+  #### Getting started with Keylogger(tools you need to download):
     1. To be able to run the keylogger, you need to install pynput library: pip install pynput
     2. f you are using python3, you might need pip3 install pynput
     3. Then, type python in the terminal. Once you are in the command line, type the following: import pynput.keyboard, followed by exit()
     4. Finally, install the keyboard library: pip install pynput.keyboard (if you are on python3, you might need pip3)
     
-   How to run the keylogger:
-   Note: While running the keylogger, we worked with two different machines, one Ubuntu(attacker) and another kali linux      VM(target). Follow the steps below to run the keylogger:
+   #### How to run the keylogger:
+   ##### Note: While running the keylogger, we worked with two different machines, one Ubuntu(attacker) and another kali linux      VM(target). Follow the steps below to run the keylogger:
 Also, you must change the IP Address in shell.py and server.py  to your own IP Address. Currently, it is a hard coded value. It would be at line 
 
 1. (On terminal/ubuntu terminal)We first create the executable file for the shell. We used python package called pyinstaller to create an executable file for the shell to do this: python -m PyInstaller shell.py
@@ -30,3 +30,11 @@ Also, you must change the IP Address in shell.py and server.py  to your own IP A
 7. Then go back to the server(Ubuntu terminal), and type keylog_dump. This will dump out “Hello, this is Jasmine”
 8. You can also see it create a text file called “keylogger.txt” on the ubuntu machine(attacker) which contains the contents of what you wrote in Kali linux machine(target)
 
+### Next, we will discuss how to run reverse shell:
+1. On your target machine, run the server. To run the server: python server.py
+2. To run the shell: We used python package called pyinstaller to create an executable file for the shell to do this: python -m PyInstaller shell.py
+ 2.1 This will create a dist directory 
+3. Now copy the dist directory to the target computer
+On the target computer, do the following: #both these commands are basically the target running our shell
+3.1 cd dist/shell                     
+3.2 comiple: ./shell  
